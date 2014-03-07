@@ -12,7 +12,7 @@
 #        - rails generate rspec:install
 #        - git init / commit
 #        - Create Repository
-#        - git remote set-url origin https://github.com/tmulherin/sample_app.git
+#        - git remote add origin https://github.com/tmulherin/sample_app.git
 #        - git remote set-url origin https://github.com/tmulherin/sample_app.git
 #  
 #############################################################################################
