@@ -1,8 +1,9 @@
+<% provide(:title, 'Home') %>
 <!DOCTYPE HTML>
 <html lang="eng-US">
     <head>
         <meta charset="UTF-8"/>
-        <title>RoR Sample_App |Home|</title>
+        <title>RoR Sample_App |<%= yield(:title) %>|</title>
     </head>
     <body>
         <h1>Sample App</h1>
