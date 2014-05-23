@@ -1,66 +1,39 @@
 require 'spec_helper'
 
-
 describe "Static pages" do
-
-  let(:base_title) { "RoR Sample App" }
+  subject { page }
+#  let(:base_title) { "RoR Sample App" }
   
+# ------- Home -----------------------------------------------------
   describe "home page" do
+    before { visit root_path }
     
-    it "should have the content 'Sample App'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('Sample App') 
-    end
-
-    it "should have the base title" do
-      visit '/static_pages/home'
-      expect(page).to have_title("RoR Sample App")
-    end
-    
-    it "should not have a custom page title" do
-      visit '/static_pages/home'
-      expect(page).not_to have_title('| Home |')
-    end
-
-  end # -> "home page"
-
-
-  describe "help page" do
-
-    it "should have the Title Page" do
-      visit '/static_pages/help'
-      expect(page).to have_title("#{base_title} | Help |")
-    end
-
-    it "should have the content 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_content('Help') 
-    end
-  end # -> "help page"
+    it { should have_content   'Sample App' }
+    it { should have_title     full_title('') }
+    it { should_not have_title ' | Home|' }
+  end 
   
+# ------- Help ------------------------------------------------------
+  describe "help page" do
+    before { visit help_path }
+
+    it { should have_title full_title('Help') }
+    it { should have_content 'Help' }
+  end
+
+# ------- About -----------------------------------------------------  
   describe "about page" do
+    before { visit about_path }
 
-    it "should have the Title Page" do
-      visit '/static_pages/about'
-      expect(page).to have_title("#{base_title} | About |")
-    end
+    it {should have_title full_title('About') }
+    it {should have_content 'About Us' }
+  end
 
-    it "should have the content 'About Us'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('About Us')
-    end
-  end # -> "about page"
-
+# ------- Contact ---------------------------------------------------
   describe "contact page" do
+    before { visit contact_path }
 
-    it "should have the Title Page" do
-      visit '/static_pages/contact'
-      expect(page).to have_title("#{base_title} | Contact |")
-    end
-
-    it "should have the content 'contact page'" do
-      visit '/static_pages/contact'
-      expect(page).to have_content('contact page')
-    end
-  end # -> "contact page"
-end # "Static pages"
+    it {should have_title full_title('Contact') }
+    it {should have_content 'Contact Page' }
+  end
+end # describe "Static pages"
